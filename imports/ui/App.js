@@ -1,97 +1,40 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import { Meteor } from 'meteor/meteor';
-import { withTracker } from 'meteor/react-meteor-data';
- 
-import { Tasks } from '../api/tasks.js';
- 
-import Task from './Task.js';
-import AccountsUIWrapper from './AccountsUIWrapper.js';
- 
-// App component - represents the whole app
-class App extends Component {
-  constructor(props) {
-    super(props);
- 
-    this.state = {
-      hideCompleted: false,
-    };
-  }
+import React from 'react';
+import { render } from 'react-dom';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
-  handleSubmit(event) {
-    event.preventDefault();
- 
-    // Find the text field via the React ref
-    const text = ReactDOM.findDOMNode(this.refs.textInput).value.trim();
- 
-    Tasks.insert({
-      text,
-      createdAt: new Date(), // current time
-      owner: Meteor.userId(),           // _id of logged in user
-      username: Meteor.user().username,  // username of logged in user
-    });
- 
-    // Clear form
-    ReactDOM.findDOMNode(this.refs.textInput).value = '';
-  }
+import indigo from '@material-ui/core/colors/indigo';
+import pink from '@material-ui/core/colors/pink';
+import red from '@material-ui/core/colors/red';
 
-  toggleHideCompleted() {
-    this.setState({
-      hideCompleted: !this.state.hideCompleted,
-    });
-  }
+import Colors from '@material-ui/core/colors';
 
-  renderTasks() {
-    let filteredTasks = this.props.tasks;
-    if (this.state.hideCompleted) {
-      filteredTasks = filteredTasks.filter(task => !task.checked);
-    }
-    return filteredTasks.map((task) => (
-      <Task key={task._id} task={task} />
-    ));
-  }
- 
-  render() {
-    return (
-      <div className="container">
-        <header>
-          <h1>Todo List ({this.props.incompleteCount})</h1>
+// import Root from './GridList';
 
-          <label className="hide-completed">
-            <input
-              type="checkbox"
-              readOnly
-              checked={this.state.hideCompleted}
-              onClick={this.toggleHideCompleted.bind(this)}
-            />
-            Hide Completed Tasks
-          </label>
+import { AppMUI as Root } from './Root';
 
-          <AccountsUIWrapper />
+// All the following keys are optional.
+// We try our best to provide a great default value.
+const theme = createMuiTheme({
+  palette: {
+    primary: Colors.green,
+    secondary: Colors.lightGreen,
+    error: red,
+    // Used by `getContrastText()` to maximize the contrast between the background and
+    // the text.
+    contrastThreshold: 3,
+    // Used to shift a color's luminance by approximately
+    // two indexes within its tonal palette.
+    // E.g., shift from Red 500 to Red 300 or Red 700.
+    tonalOffset: 0.2,
+  },
+});
 
-          { this.props.currentUser ?
-            <form className="new-task" onSubmit={this.handleSubmit.bind(this)} >
-              <input
-                type="text"
-                ref="textInput"
-                placeholder="Type to add new tasks"
-              />
-            </form> : ''
-          }
-        </header>
- 
-        <ul>
-          {this.renderTasks()}
-        </ul>
-      </div>
-    );
-  }
+export default function App() {
+  return (
+    <MuiThemeProvider theme={theme}>
+      <CssBaseline />
+      <Root />
+    </MuiThemeProvider>
+  );
 }
-
-export default withTracker(() => {
-  return {
-    tasks: Tasks.find({}, { sort: { createdAt: -1 } }).fetch(),
-    incompleteCount: Tasks.find({ checked: { $ne: true } }).count(),
-    currentUser: Meteor.user(),
-  };
-})(App);
