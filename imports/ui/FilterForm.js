@@ -16,6 +16,10 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormGroup from '@material-ui/core/FormGroup';
+import Switch from '@material-ui/core/Switch';
+
 const styles = theme => ({
   root: {
     marginTop: 20,
@@ -62,6 +66,9 @@ class InputAdornments extends React.Component {
     weight: '',
     weightRange: 0,
     showPassword: false,
+
+    auth: true,
+    anchorEl: null,
   };
 
   handleChange = prop => event => {
@@ -78,6 +85,7 @@ class InputAdornments extends React.Component {
 
   render() {
     const { classes } = this.props;
+    const { auth, anchorEl } = this.state;
 
     return (
       <Grid container className={classes.root} spacing={16}>
@@ -95,6 +103,15 @@ class InputAdornments extends React.Component {
       
             <Paper className={classes.paper}  >
 
+        <FormGroup>
+          <FormControlLabel
+            control={
+              <Switch checked={auth} onChange={this.handleChange} aria-label="LoginSwitch" />
+            }
+            label={auth ? 'Learner' : 'Educator'}
+          />
+        </FormGroup>
+ 
 
         <TextField
           label="Name"

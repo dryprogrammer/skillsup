@@ -171,7 +171,7 @@ color="default"
               >
                 <MenuIcon />
               </IconButton>
-              <img height={80} src={'/images/logo2.png'} alt='SkillsUp' />
+              <img height={80} src={'/images/logo.png'} alt='SkillsUp' />
             </Toolbar>
           </AppBar>
           {before}

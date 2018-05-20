@@ -23,6 +23,10 @@ import AppSelection from './AppSelection';
 
 import FilterForm from './FilterForm';
 // import AppBar from './AppBar';
+import AppBar2 from './AppBar2';
+
+import SkillsDashboard from './SkillsDashboard';
+import LandingPage from './LandingPage2';
 
 const styles = {
   root: {
@@ -33,35 +37,14 @@ const styles = {
   },
 };
 
-function SimpleAppBar(props) {
-  const { classes } = props;
-  return (
-    <div className={classes.root}>
-      <AppBar position="static" color="default">
-        <Toolbar>
-          <img height={80} src={'/images/logo2.png'} alt='SkillsUp' />
-          <Button component={Link} to='/app_selection' color="inherit">Learner</Button>
-          <Button component={Link} to='/grid_list' color="inherit">Project owner</Button>
-        </Toolbar>
-      </AppBar>
-    </div>
-  );
-}
-
-SimpleAppBar.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
-const AppBarComponent = withStyles(styles)(SimpleAppBar);
-
 // import { AppMUI as Root } from './Root';
 
 // All the following keys are optional.
 // We try our best to provide a great default value.
 const theme = createMuiTheme({
   palette: {
-    type: 'dark',
-    primary: Colors.green,
+    type: 'light',
+    primary: Colors.pink,
     secondary: Colors.lightGreen,
     error: red,
     // Used by `getContrastText()` to maximize the contrast between the background and
@@ -126,11 +109,13 @@ export default function App() {
       <CssBaseline />
       <Router>
         <div>
-          <AppBarComponent />
-          <Route exact path="/" component={AppSelection} />
+          <AppBar2 />
+          <Route exact path="/" component={LandingPage} />
           <Route path="/app_selection" component={FilterForm} />
           <Route path="/grid_list" component={GridList} />
           <Route path="/filter_form" component={FilterForm} />
+
+          <Route path="/skills_dashboard" component={SkillsDashboard} />
         </div>
       </Router>
     </MuiThemeProvider>

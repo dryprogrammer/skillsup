@@ -9,6 +9,9 @@ import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
 import tileData from './tileData';
 
+import Paper from '@material-ui/core/Paper';
+import { Link } from 'react-router-dom'
+
 const styles = theme => ({
   root: {
     display: 'flex',
@@ -18,8 +21,8 @@ const styles = theme => ({
     backgroundColor: theme.palette.background.paper,
   },
   gridList: {
-    width: 500,
-    height: 450,
+    width: 800,
+    height: 700,
   },
   icon: {
     color: 'rgba(255, 255, 255, 0.54)',
@@ -47,27 +50,36 @@ function TitlebarGridList(props) {
   const { classes } = props;
 
   return (
-    <div className={classes.root}>
-      <GridList cellHeight={180} className={classes.gridList}>
-        <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
-          <ListSubheader component="div">December</ListSubheader>
-        </GridListTile>
-        {tileData.map(tile => (
-          <GridListTile key={tile.volunteerId}>
-            <img src={'https://www.giving.sg' + tile.Url} alt={tile.DisplayName} />
-            <GridListTileBar
-              title={tile.DisplayName}
-              subtitle={<span>{tile.Suitabilities}</span>}
-              actionIcon={
-                <IconButton className={classes.icon}>
-                  <InfoIcon />
-                </IconButton>
-              }
-            />
+    <div>
+      <div className={classes.root}>
+        <GridList cols={3} cellHeight={400} className={classes.gridList}>
+          <GridListTile key="Subheader" cols={3} rows={1} style={{ height: 'auto' }}>
+            <ListSubheader component="div">December</ListSubheader>
           </GridListTile>
-        ))}
-      </GridList>
+          {tileData.map(tile => (
+            <GridListTile key={tile.volunteerId}>
+              <img src={'https://www.giving.sg' + tile.Url} alt={tile.DisplayName} />
+              <GridListTileBar
+                title={tile.DisplayName}
+                subtitle={<span>{tile.Suitabilities}</span>}
+                actionIcon={
+                  <IconButton className={classes.icon}>
+                    <InfoIcon />
+                  </IconButton>
+                }
+              />
+            </GridListTile>
+          ))}
+        </GridList>
+      </div>
+
+      <Paper elevation={4} style={{"position":"fixed","bottom":"10px","left":"10px"}}>
+        <Link to='/'>
+          <img src='/images/logo.png' height={80}/>
+        </Link>
+      </Paper>
     </div>
+
   );
 }
 
