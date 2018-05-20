@@ -29,7 +29,7 @@ export const mailFolderListItems = (
       </Link>
     </ListItem>
     <ListItem button >
-      <Link to="/grid_list"  >
+      <Link to="/project"  >
       <ListItemText primary="Project owner" />
       </Link>
     </ListItem>

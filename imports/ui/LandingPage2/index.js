@@ -41,7 +41,7 @@ function PaperSheet(props) {
             &nbsp; through purposeful projects
 
         </Typography>
-        <Button component={Link} to="/grid_list" variant="raised" className={classes.button} style={{ marginTop: 15 }} >
+        <Button component={Link} to="/project" variant="raised" className={classes.button} style={{ marginTop: 15 }} >
           View Projects
         </Button>
 

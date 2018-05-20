@@ -1,5 +1,86 @@
 const tileData = [
   {
+    "isVolunteer": true,
+    "publicAccess": true,
+    "Openings": "30",
+    "UserName": "Samantha Yee",
+    "DisplayName": "Teach Coding to Underprivileged Kids with Google",
+    des: `Code in The Community is a community initiative in which Google is sponsoring free coding classes for 3,000 underprivileged children in Singapore.
+
+    The program consists of 10-week terms in which kids learn either Scratch (8-11yo) or Python (12-15) in a fun and engaging way, allowing them to build digital literacy, confidence and resourcefulness.
+    
+    Note: Please see our other listings for other available locations.`,
+    "Suitabilities": "Organisation or Groups, Open to All",
+    "volunteerId": 7099157,
+    "Title": "Teach Coding to Underprivileged Kids with Google",
+    "VolunteerUrl": "\/volunteer-event?event_activity_id=7099152",
+    "isRegular": true,
+    "Url": "\/image\/logo?img_id=7099155",
+    "Duration": "1-3 Months",
+    "Town": "Yishun",
+    "VolunteerOrgName": "Code in The Community",
+    "Frequency": "Few hours a week on weekend",
+    "ncssOppoId": "isEmptyField",
+    "ncssImageUrl": "",
+    "ncssRedirectUrl": "",
+    skill: [
+      'Coding skills', 
+      'Teaching skills',
+      'Communication skills',
+    ]
+  },
+  {
+    "isVolunteer": true,
+    "publicAccess": true,
+    "Openings": "30",
+    "UserName": "Young NTUC",
+    "DisplayName": "Refresh homes with Team HTH",
+    "Suitabilities": "Organisation or Groups, Open to All",
+    "volunteerId": 7099157,
+    "Title": "Refresh homes with Team HTH",
+    "VolunteerUrl": "\/volunteer-event?event_activity_id=7099152",
+    "isRegular": true,
+    img: '/images/refresh.jpg',
+    "Url": "\/image\/logo?img_id=6647767",
+    "Duration": "1-3 Months",
+    "Town": "River Valley",
+    "VolunteerOrgName": "Code in The Community",
+    "Frequency": "Few hours a week on weekend",
+    "ncssOppoId": "isEmptyField",
+    "ncssImageUrl": "",
+    "ncssRedirectUrl": "",
+    skills: [
+      'Communication skills',
+      'Teamworking skills',
+    ],
+  },
+  {
+    "isVolunteer": true,
+    "publicAccess": true,
+    "Openings": "30",
+    "UserName": "Derrick the Droner",
+    "DisplayName": "Drone Programming for fun in the parks",
+    "Suitabilities": "Organisation or Groups, Open to All",
+    "volunteerId": 7099157,
+    "Title": "Drone Programming for fun in the parks",
+    "VolunteerUrl": "\/volunteer-event?event_activity_id=7099152",
+    "isRegular": true,
+    "Url": "\/image\/logo?img_id=7099155",
+    img: '/images/Drone-that-Maps-IoT-Devices-ZigBee.jpg',
+    "Duration": "1-3 Months",
+    "Town": "Yishun",
+    "VolunteerOrgName": "Code in The Community",
+    "Frequency": "Few hours a week on weekend",
+    "ncssOppoId": "isEmptyField",
+    "ncssImageUrl": "",
+    "ncssRedirectUrl": "",
+    skills: [
+      'Drone programming skills',
+    ],
+  },
+
+
+  {
     "hasMore": true,
     "isVolunteer": true,
     "publicAccess": true,
@@ -133,4 +214,15 @@ const tileData = [
   }
 ];
 
-export default tileData;
+const convertKeys = (item_v0) => {
+  const item = Object.assign({
+    key: item_v0.volunteerId,
+    img: item_v0.img ? item_v0.img : 'https://www.giving.sg' + item_v0.Url,
+    title: item_v0.Title,
+    subtitle: item_v0.UserName,
+    des: item_v0.des ? item_v0.des : item_v0.DisplayName,
+  }, item_v0);
+  return item;
+};
+
+export default tileData.map(convertKeys);;

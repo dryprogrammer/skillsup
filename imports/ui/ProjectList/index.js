@@ -12,6 +12,8 @@ import tileData from './tileData';
 import Paper from '@material-ui/core/Paper';
 import { Link } from 'react-router-dom'
 
+import ProjectCard from './ProjectCard';
+
 const styles = theme => ({
   root: {
     display: 'flex',
@@ -21,7 +23,7 @@ const styles = theme => ({
     backgroundColor: theme.palette.background.paper,
   },
   gridList: {
-    width: 800,
+    width: 900,
     height: 700,
   },
   icon: {
@@ -52,11 +54,13 @@ function TitlebarGridList(props) {
   return (
     <div>
       <div className={classes.root}>
-        <GridList cols={3} cellHeight={400} className={classes.gridList}>
+        <GridList cols={3} cellHeight={400} spacing={10} className={classes.gridList}>
           <GridListTile key="Subheader" cols={3} rows={1} style={{ height: 'auto' }}>
             <ListSubheader component="div">December</ListSubheader>
           </GridListTile>
-          {tileData.map(tile => (
+          {tileData.map(tile => {
+            return <ProjectCard {...tile} />;
+            const a = (
             <GridListTile key={tile.volunteerId}>
               <img src={'https://www.giving.sg' + tile.Url} alt={tile.DisplayName} />
               <GridListTileBar
@@ -69,7 +73,9 @@ function TitlebarGridList(props) {
                 }
               />
             </GridListTile>
-          ))}
+          )
+          }
+          )}
         </GridList>
       </div>
 

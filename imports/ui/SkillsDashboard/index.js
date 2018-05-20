@@ -55,6 +55,10 @@ function SingleLineGridList(props) {
 
   return (
     <Paper className={classes.root}>
+
+    <Paper className={classes.root}>
+    </Paper>
+    <Paper className={classes.root}>
       <GridList className={classes.gridList} cols={2.5}>
         {tileData.map(tile => (
           <GridListTile key={tile.img}>
@@ -74,6 +78,8 @@ function SingleLineGridList(props) {
           </GridListTile>
         ))}
       </GridList>
+    </Paper>
+
     </Paper>
   );
 }

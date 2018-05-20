@@ -16,6 +16,9 @@ import Menu from '@material-ui/core/Menu';
 import { Link } from 'react-router-dom'
 import ListItemText from '@material-ui/core/ListItemText';
 
+import classNames from 'classnames';
+import Avatar from '@material-ui/core/Avatar';
+
 const styles = {
   root: {
     flexGrow: 1,
@@ -27,7 +30,37 @@ const styles = {
     marginLeft: -12,
     marginRight: 20,
   },
+  row: {
+    display: 'flex',
+    justifyContent: 'center',
+  },
+  // avatar: {
+  //   margin: 10,
+  // },
+  bigAvatar: {
+    width: 40,
+    height: 40,
+  },
+
 };
+function ImageAvatars(props) {
+  const { classes } = props;
+  return (
+    <div className={classes.row}>
+      <Avatar
+        alt="Adam Charles"
+        src="/images/pl_avatar.png"
+        className={classNames(classes.avatar, classes.bigAvatar)}
+      />
+    </div>
+  );
+}
+
+ImageAvatars.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+const UserAvatar = withStyles(styles)(ImageAvatars);
 
 function SimpleAppBar(props) {
   const { classes } = props;
@@ -36,7 +69,7 @@ function SimpleAppBar(props) {
       <AppBar position="static" color="default">
         <Toolbar>
           <Button component={Link} to='/app_selection' color="inherit">Learner</Button>
-          <Button component={Link} to='/grid_list' color="inherit">Project owner</Button>
+          <Button component={Link} to='/project' color="inherit">Project owner</Button>
         </Toolbar>
       </AppBar>
     </div>
@@ -97,7 +130,7 @@ class MenuAppBar extends React.Component {
                   onClick={this.handleMenu}
                   color="inherit"
                 >
-                  <AccountCircle />
+                  <UserAvatar />
                 </IconButton>
                 <Menu
                   id="menu-appbar"
@@ -115,7 +148,8 @@ class MenuAppBar extends React.Component {
                 >
                   <MenuItem onClick={this.handleClose}>Profile</MenuItem>
                   <MenuItem onClick={this.handleClose}>
-                    <Link to="/skills_dashboard"  >
+
+                    <Link to="/skills_chart"  >
                        <ListItemText primary="Skills Dashboard" />
                     </Link>
     

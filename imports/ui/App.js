@@ -18,7 +18,8 @@ import Button from '@material-ui/core/Button';
 
 // Routes
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import GridList from './GridList';
+import ProjectList from './ProjectList';
+import ProjectPage from './ProjectPage';
 import AppSelection from './AppSelection';
 
 import FilterForm from './FilterForm';
@@ -27,6 +28,9 @@ import AppBar2 from './AppBar2';
 
 import SkillsDashboard from './SkillsDashboard';
 import LandingPage from './LandingPage2';
+import SkillsChart from './SkillsChart';
+
+import CurrentProjects from './CurrentProjects';
 
 const styles = {
   root: {
@@ -100,7 +104,7 @@ const Topic = ({ match }) => (
           //     <Link to="/app_selection">About</Link>
           //   </li>
           //   <li>
-          //     <Link to="/grid_list">Topics</Link>
+          //     <Link to="/project">Topics</Link>
           //   </li>
           // </ul>
 export default function App() {
@@ -112,10 +116,16 @@ export default function App() {
           <AppBar2 />
           <Route exact path="/" component={LandingPage} />
           <Route path="/app_selection" component={FilterForm} />
-          <Route path="/grid_list" component={GridList} />
           <Route path="/filter_form" component={FilterForm} />
 
           <Route path="/skills_dashboard" component={SkillsDashboard} />
+
+          <Route exact path="/project" component={ProjectList} />
+          <Route path="/project/:id" component={ProjectPage} />
+
+          <Route exact path="/current_projects" component={CurrentProjects} />
+
+          <Route path="/skills_chart" component={SkillsChart} />
         </div>
       </Router>
     </MuiThemeProvider>

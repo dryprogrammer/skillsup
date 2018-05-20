@@ -18,26 +18,56 @@ const MyLink = props => <Link to="/open-collective" {...props} />
 
 export const mailFolderListItems = (
   <div>
-    <ListItem button  >
-      <Link to="/"  >
-        <ListItemText primary="Landing Page" />
-      </Link>
-    </ListItem>
-    <ListItem button >
+    <Link to="/"  >
+      <ListItem button  >
+        <ListItemText primary="Introduction" />
+      </ListItem>
+    </Link>
+
+
+    <Link to="/project"  >
+      <ListItem button >
+        <ListItemText primary="List of Projects" />
+      </ListItem>
+    </Link>
+
+    <Link to="/skills_chart"  >
+      <ListItem button >
+        <ListItemText primary="Skills Genie" />
+      </ListItem>
+    </Link>
+
+    <Link to="/current_projects"  >
+      <ListItem button >
+        <ListItemText primary="Current Projects" />
+      </ListItem>
+    </Link>
+
+    <Link to="/project"  >
+      <ListItem button >
+        <ListItemText primary="Accreditations" />
+      </ListItem>
+    </Link>
+
+    <Link to="/project"  >
+      <ListItem button >
+        <ListItemText primary="Profile" />
+      </ListItem>
+    </Link>
+
+    <Link to="/app_selection"  >
+      <ListItem button >
+        <ListItemText primary="Learner" />
+      </ListItem>
+    </Link>
+
+
       <Link to="/app_selection"  >
-      <ListItemText primary="Learner" />
-      </Link>
-    </ListItem>
+
     <ListItem button >
-      <Link to="/grid_list"  >
-      <ListItemText primary="Projects" />
-      </Link>
-    </ListItem>
-    <ListItem button >
-      <Link to="/app_selection"  >
         <ListItemText primary="SkillsFuture Singapore" />
-      </Link>
     </ListItem>
+      </Link>
   </div>
 );
 
