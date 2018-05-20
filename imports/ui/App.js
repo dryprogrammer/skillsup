@@ -9,14 +9,58 @@ import red from '@material-ui/core/colors/red';
 
 import Colors from '@material-ui/core/colors';
 
-// import Root from './GridList';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 
-import { AppMUI as Root } from './Root';
+// Routes
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import GridList from './GridList';
+import AppSelection from './AppSelection';
+
+import FilterForm from './FilterForm';
+// import AppBar from './AppBar';
+
+const styles = {
+  root: {
+    flexGrow: 1,
+  },
+  flex: {
+    flex: 1,
+  },
+};
+
+function SimpleAppBar(props) {
+  const { classes } = props;
+  return (
+    <div className={classes.root}>
+      <AppBar position="static" color="default">
+        <Toolbar>
+          <img height={80} src={'/images/logo2.png'} alt='SkillsUp' />
+          <Button component={Link} to='/app_selection' color="inherit">Learner</Button>
+          <Button component={Link} to='/grid_list' color="inherit">Project owner</Button>
+        </Toolbar>
+      </AppBar>
+    </div>
+  );
+}
+
+SimpleAppBar.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+const AppBarComponent = withStyles(styles)(SimpleAppBar);
+
+// import { AppMUI as Root } from './Root';
 
 // All the following keys are optional.
 // We try our best to provide a great default value.
 const theme = createMuiTheme({
   palette: {
+    type: 'dark',
     primary: Colors.green,
     secondary: Colors.lightGreen,
     error: red,
@@ -30,11 +74,65 @@ const theme = createMuiTheme({
   },
 });
 
+
+// rgb(55, 197, 250)
+// rgb(249, 128, 171);
+// rgb(87, 86, 96);
+
+const Topics = ({ match }) => (
+  <div>
+    <h2>Topics</h2>
+    <ul>
+      <li>
+        <Link to={`${match.url}/rendering`}>Rendering with React</Link>
+      </li>
+      <li>
+        <Link to={`${match.url}/components`}>Components</Link>
+      </li>
+      <li>
+        <Link to={`${match.url}/props-v-state`}>Props v. State</Link>
+      </li>
+    </ul>
+
+    <Route path={`${match.url}/:topicId`} component={Topic} />
+    <Route
+      exact
+      path={match.url}
+      render={() => <h3>Please select a topic.</h3>}
+    />
+  </div>
+);
+
+const Topic = ({ match }) => (
+  <div>
+    <h3>{match.params.topicId}</h3>
+  </div>
+);
+
+          // <ul>
+          //   <li>
+          //     <Link to="/">Home</Link>
+          //   </li>
+          //   <li>
+          //     <Link to="/app_selection">About</Link>
+          //   </li>
+          //   <li>
+          //     <Link to="/grid_list">Topics</Link>
+          //   </li>
+          // </ul>
 export default function App() {
   return (
     <MuiThemeProvider theme={theme}>
       <CssBaseline />
-      <Root />
+      <Router>
+        <div>
+          <AppBarComponent />
+          <Route exact path="/" component={AppSelection} />
+          <Route path="/app_selection" component={FilterForm} />
+          <Route path="/grid_list" component={GridList} />
+          <Route path="/filter_form" component={FilterForm} />
+        </div>
+      </Router>
     </MuiThemeProvider>
   );
 }

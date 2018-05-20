@@ -53,11 +53,11 @@ function TitlebarGridList(props) {
           <ListSubheader component="div">December</ListSubheader>
         </GridListTile>
         {tileData.map(tile => (
-          <GridListTile key={tile.img}>
-            <img src={tile.img} alt={tile.title} />
+          <GridListTile key={tile.volunteerId}>
+            <img src={'https://www.giving.sg' + tile.Url} alt={tile.DisplayName} />
             <GridListTileBar
-              title={tile.title}
-              subtitle={<span>by: {tile.author}</span>}
+              title={tile.DisplayName}
+              subtitle={<span>{tile.Suitabilities}</span>}
               actionIcon={
                 <IconButton className={classes.icon}>
                   <InfoIcon />
