@@ -22,12 +22,12 @@ import {Radar, RadarChart, PolarGrid, Legend,
   PolarAngleAxis, PolarRadiusAxis} from 'recharts';
 
 const data = [
-{ subject: 'COMMUNICATION and Interpersonal', A: 120, B: 110, fullMark: 150 },
-{ subject: 'SOFT SKILLS', A: 98, B: 130, fullMark: 150 },
-{ subject: 'THOUGHT PROCESSSES', A: 86, B: 130, fullMark: 150 },
+{ subject: 'COMMUNICATION', A: 100, B: 110, fullMark: 150 },
+{ subject: 'SOFT SKILLS', A: 78, B: 130, fullMark: 150 },
+{ subject: 'ANALYTICAL', A: 86, B: 130, fullMark: 150 },
 { subject: 'TEAMWORK', A: 99, B: 100, fullMark: 150 },
-{ subject: 'SALES and Marketing', A: 85, B: 90, fullMark: 150 },
-{ subject: 'LEADERSHIP and Management', A: 65, B: 85, fullMark: 150 },
+{ subject: 'SALES', A: 85, B: 90, fullMark: 150 },
+{ subject: 'LEADERSHIP', A: 65, B: 85, fullMark: 150 },
 ];
 
 const TwoLevelPieChart = () => (

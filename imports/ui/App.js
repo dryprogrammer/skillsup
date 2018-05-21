@@ -33,6 +33,8 @@ import SkillsChart from './SkillsChart';
 import CurrentProjects from './CurrentProjects';
 import ProjectDashboard from './ProjectDashboard';
 
+import Accreditations from './Accreditations';
+
 const styles = {
   root: {
     flexGrow: 1,
@@ -128,6 +130,8 @@ export default function App() {
           <Route exact path="/project_dashboard/:id" component={ProjectDashboard} />
 
           <Route path="/skills_chart" component={SkillsChart} />
+
+          <Route path="/accreditations" component={Accreditations} />
         </div>
       </Router>
     </MuiThemeProvider>

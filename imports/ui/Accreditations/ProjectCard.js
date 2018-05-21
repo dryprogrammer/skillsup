@@ -21,7 +21,10 @@ import { Link } from 'react-router-dom'
 const styles = {
   card: {
     width: 300,
-    height: 500,
+    height: 350,
+    marginLeft: 10,
+    marginRight: 10,
+    borderRadius: 40,
   },
   media: {
     height: 0,
@@ -78,27 +81,29 @@ SimpleList.propTypes = {
 const SkillsList =  withStyles(styles2)(SimpleList);
 
 function SimpleMediaCard(props) {
-  const { classes, key, title, subtitle, des, img } = props;
+  const { classes, from, skill, skill_img, level } = props;
   return (
-    <Link to={'/project/key'} >
+    <Link to={'/project_dashboard/'+'key'} >
       <Card className={classes.card}>
+          <Typography align='center' gutterBottom variant="headline" component="h2" style={{ paddingTop: 10 }} >
+            { from }
+          </Typography>
+
+
         <CardMedia
           className={classes.media}
-          image={img}
-          title={title}
+          image={skill_img}
+          title={skill}
         />
         <CardContent>
 
-          <Typography gutterBottom variant="headline" component="h2">
-            { title }
+          <Typography align='center' gutterBottom variant="headline" component="h2">
+            { skill }
           </Typography>
 
-          <Typography gutterBottom component="h5">
-            By: { subtitle }
+          <Typography align='center' gutterBottom component="h5">
+            { level }
           </Typography>
-
-          < SkillsList { ... props } />
-
         </CardContent>
       </Card>
     </Link>

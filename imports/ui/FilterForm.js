@@ -20,6 +20,8 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormGroup from '@material-ui/core/FormGroup';
 import Switch from '@material-ui/core/Switch';
 
+import { Link } from 'react-router-dom'
+
 const styles = theme => ({
   root: {
     marginTop: 20,
@@ -103,16 +105,6 @@ class InputAdornments extends React.Component {
       
             <Paper className={classes.paper}  >
 
-        <FormGroup>
-          <FormControlLabel
-            control={
-              <Switch checked={auth} onChange={this.handleChange} aria-label="LoginSwitch" />
-            }
-            label={auth ? 'Learner' : 'Educator'}
-          />
-        </FormGroup>
- 
-
         <TextField
           label="Name"
           id="simple-start-adornment"
@@ -137,7 +129,6 @@ class InputAdornments extends React.Component {
             id="adornment-amount"
             value={this.state.amount}
             onChange={this.handleChange('amount')}
-            startAdornment={<InputAdornment position="start">$</InputAdornment>}
           />
         </FormControl>
         <FormControl
@@ -156,7 +147,7 @@ class InputAdornments extends React.Component {
           <FormHelperText id="weight-helper-text">Skills</FormHelperText>
         </FormControl>
         <FormControl className={classNames(classes.margin, classes.textField)}>
-          <InputLabel htmlFor="adornment-password">Dream</InputLabel>
+          <InputLabel htmlFor="adornment-password">Dream job</InputLabel>
           <Input
             id="adornment-password"
             type={this.state.showPassword ? 'text' : 'password'}
@@ -175,7 +166,16 @@ class InputAdornments extends React.Component {
             }
           />
         </FormControl>
+        <div style={{"height":"60px","display":"flex","alignItems":"center"}} >
+          <hr style={{ width: 600 }} />
+        </div>
+ 
+        <div style={{display: 'flex', justifyContent: 'center' }}>
+          <Link to='/skills_chart'>
+          <img width={200} src="/images/linkedinlogin.png" alt=""/>
+          </Link >
 
+        </div>
           </Paper>
 
           </Grid>

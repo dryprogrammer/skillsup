@@ -21,9 +21,12 @@ const styles = theme => ({
     justifyContent: 'space-around',
     overflow: 'hidden',
     backgroundColor: theme.palette.background.paper,
+    padding: 20,
+    margin: 10,
   },
   gridList: {
     width: 900,
+    padding: 10,
     // height: 700,
   },
   icon: {
@@ -52,11 +55,10 @@ function TitlebarGridList(props) {
   const { classes } = props;
 
   return (
-    <div>
-      <div className={classes.root}>
+    <Paper className={classes.root} elevation={4}>
         <GridList cols={3} cellHeight={400} spacing={10} className={classes.gridList}>
           <GridListTile key="Subheader" cols={3} rows={1} style={{ height: 'auto' }}>
-            <ListSubheader component="div" style={{ fontSize: 24 }} > Current Projects </ListSubheader>
+            <ListSubheader component="div" style={{ fontSize: 24 }} > Accreditations </ListSubheader>
           </GridListTile>
           {tileData.slice(0, 2).map(tile => {
             return <ProjectCard {...tile} />;
@@ -77,40 +79,13 @@ function TitlebarGridList(props) {
           }
           )}
         </GridList>
-        <div style={{"height":"60px","display":"flex","alignItems":"center"}} >
-          <hr style={{ width: 600 }} />
-        </div>
-        <GridList cols={3} cellHeight={400} spacing={10} className={classes.gridList}>
-          <GridListTile key="Subheader" cols={3} rows={1} style={{ height: 'auto' }}>
-            <ListSubheader component="div" style={{ fontSize: 24 }} > Past Projects </ListSubheader>
-          </GridListTile>
-          {tileData.slice(2, 3).map(tile => {
-            return <ProjectCard {...tile} />;
-            const a = (
-            <GridListTile key={tile.volunteerId}>
-              <img src={'https://www.giving.sg' + tile.Url} alt={tile.DisplayName} />
-              <GridListTileBar
-                title={tile.DisplayName}
-                subtitle={<span>{tile.Suitabilities}</span>}
-                actionIcon={
-                  <IconButton className={classes.icon}>
-                    <InfoIcon />
-                  </IconButton>
-                }
-              />
-            </GridListTile>
-          )
-          }
-          )}
-        </GridList>
-      </div>
 
       <Paper elevation={4} style={{"position":"fixed","bottom":"10px","left":"10px"}}>
         <Link to='/'>
           <img src='/images/logo.png' height={80}/>
         </Link>
       </Paper>
-    </div>
+    </Paper>
 
   );
 }

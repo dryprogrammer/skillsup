@@ -31,6 +31,13 @@ export const mailFolderListItems = (
       </ListItem>
     </Link>
 
+    <Link to="/app_selection"  >
+      <ListItem button >
+        <ListItemText primary="Learner" />
+      </ListItem>
+    </Link>
+
+
     <Link to="/skills_chart"  >
       <ListItem button >
         <ListItemText primary="Skills Genie" />
@@ -43,21 +50,15 @@ export const mailFolderListItems = (
       </ListItem>
     </Link>
 
-    <Link to="/project"  >
+    <Link to="/accreditations"  >
       <ListItem button >
         <ListItemText primary="Accreditations" />
       </ListItem>
     </Link>
 
-    <Link to="/project"  >
+    <Link to="/skills_chart"  >
       <ListItem button >
         <ListItemText primary="Profile" />
-      </ListItem>
-    </Link>
-
-    <Link to="/app_selection"  >
-      <ListItem button >
-        <ListItemText primary="Learner" />
       </ListItem>
     </Link>
 

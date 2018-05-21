@@ -69,7 +69,7 @@ function CenteredGrid(props) {
         <Grid item xs={6}>
 
           <div style={{ display: 'flex', justifyContent: 'center', margin: 20 }} >
-            <Link to='/skills_chart' >
+            <Link to='/filter_form' >
               <Button variant="raised" color="primary" className={classes.button}>
                 JOIN NOW
               </Button>
