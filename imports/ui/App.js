@@ -31,6 +31,7 @@ import LandingPage from './LandingPage2';
 import SkillsChart from './SkillsChart';
 
 import CurrentProjects from './CurrentProjects';
+import ProjectDashboard from './ProjectDashboard';
 
 const styles = {
   root: {
@@ -124,6 +125,7 @@ export default function App() {
           <Route path="/project/:id" component={ProjectPage} />
 
           <Route exact path="/current_projects" component={CurrentProjects} />
+          <Route exact path="/project_dashboard/:id" component={ProjectDashboard} />
 
           <Route path="/skills_chart" component={SkillsChart} />
         </div>

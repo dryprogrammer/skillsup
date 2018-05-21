@@ -80,7 +80,7 @@ const SkillsList =  withStyles(styles2)(SimpleList);
 function SimpleMediaCard(props) {
   const { classes, key, title, subtitle, des, img } = props;
   return (
-    <Link to={'/project/'+key} >
+    <Link to={'/project_dashboard/'+'key'} >
       <Card className={classes.card}>
         <CardMedia
           className={classes.media}

@@ -24,7 +24,7 @@ const styles = theme => ({
   },
   gridList: {
     width: 900,
-    height: 700,
+    // height: 700,
   },
   icon: {
     color: 'rgba(255, 255, 255, 0.54)',
@@ -56,9 +56,36 @@ function TitlebarGridList(props) {
       <div className={classes.root}>
         <GridList cols={3} cellHeight={400} spacing={10} className={classes.gridList}>
           <GridListTile key="Subheader" cols={3} rows={1} style={{ height: 'auto' }}>
-            <ListSubheader component="div" style={{ fontSize: 30 }} >December</ListSubheader>
+            <ListSubheader component="div" style={{ fontSize: 24 }} > Current Projects </ListSubheader>
           </GridListTile>
-          {tileData.map(tile => {
+          {tileData.slice(0, 2).map(tile => {
+            return <ProjectCard {...tile} />;
+            const a = (
+            <GridListTile key={tile.volunteerId}>
+              <img src={'https://www.giving.sg' + tile.Url} alt={tile.DisplayName} />
+              <GridListTileBar
+                title={tile.DisplayName}
+                subtitle={<span>{tile.Suitabilities}</span>}
+                actionIcon={
+                  <IconButton className={classes.icon}>
+                    <InfoIcon />
+                  </IconButton>
+                }
+              />
+            </GridListTile>
+          )
+          }
+          )}
+        </GridList>
+        <div style={{"height":"60px","display":"flex","alignItems":"center"}} >
+
+          <hr style={{ width: 600 }} />
+        </div>
+        <GridList cols={3} cellHeight={400} spacing={10} className={classes.gridList}>
+          <GridListTile key="Subheader" cols={3} rows={1} style={{ height: 'auto' }}>
+            <ListSubheader component="div" style={{ fontSize: 24 }} > Past Projects </ListSubheader>
+          </GridListTile>
+          {tileData.slice(2, 3).map(tile => {
             return <ProjectCard {...tile} />;
             const a = (
             <GridListTile key={tile.volunteerId}>
