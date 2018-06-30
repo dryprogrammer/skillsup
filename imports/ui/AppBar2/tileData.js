@@ -18,16 +18,21 @@ const MyLink = props => <Link to="/open-collective" {...props} />
 
 export const mailFolderListItems = (
   <div>
-    <Link to="/"  >
+    <Link to="/">
       <ListItem button  >
         <ListItemText primary="Introduction" />
       </ListItem>
     </Link>
 
-
-    <Link to="/project"  >
+    <Link to="/themes"  >
       <ListItem button >
-        <ListItemText primary="List of Projects" />
+        <ListItemText primary="Themes" />
+      </ListItem>
+    </Link>
+
+    <Link to="/technologies"  >
+      <ListItem button >
+        <ListItemText primary="Technologies" />
       </ListItem>
     </Link>
 

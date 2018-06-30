@@ -11,20 +11,21 @@ import Colors from '@material-ui/core/colors';
 
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
+// import AppBar from '@material-ui/core/AppBar';
+// import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 
 // Routes
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import ProjectList from './ProjectList';
-import ProjectPage from './ProjectPage';
+import Themes from './Themes';
+import Technologies from './Technologies';
+import TechnologyPage from './TechnologyPage';
 import AppSelection from './AppSelection';
 
 import FilterForm from './FilterForm';
 // import AppBar from './AppBar';
-import AppBar2 from './AppBar2';
+// import AppBar2 from './AppBar2';
 
 import SkillsDashboard from './SkillsDashboard';
 import LandingPage from './LandingPage2';
@@ -110,21 +111,24 @@ const Topic = ({ match }) => (
           //     <Link to="/project">Topics</Link>
           //   </li>
           // </ul>
+
+          // <AppBar2 />
 export default function App() {
   return (
     <MuiThemeProvider theme={theme}>
       <CssBaseline />
       <Router>
         <div>
-          <AppBar2 />
           <Route exact path="/" component={LandingPage} />
+
+          <Route exact path="/themes" component={Themes} />
+          <Route exact path="/tech" component={Technologies} />
+          <Route path="/tech/:id" component={TechnologyPage} />
+
           <Route path="/app_selection" component={FilterForm} />
           <Route path="/filter_form" component={FilterForm} />
 
           <Route path="/skills_dashboard" component={SkillsDashboard} />
-
-          <Route exact path="/project" component={ProjectList} />
-          <Route path="/project/:id" component={ProjectPage} />
 
           <Route exact path="/current_projects" component={CurrentProjects} />
           <Route exact path="/project_dashboard/:id" component={ProjectDashboard} />

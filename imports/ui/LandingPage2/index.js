@@ -22,29 +22,33 @@ function PaperSheet(props) {
             <img src='/images/globe.png' width={250} height={250} />
             
         <Typography variant="headline" component="h1" style={{fontSize: 49, marginTop: 10 }} >
-          SkillsUp
+          YayCoding
         </Typography>
         <Typography component="h2" style={{fontSize: 24, flex: 'inline', maxWidth: 700 }} align='center' >
-          An online ecosystem for &nbsp;
+          The quickest way to get started with &nbsp;
             <Typography style={{ display: 'inline-flex', fontSize: 24, fontWeight: 'bold' }} >
-              personalised skills identification
+              machine learning.
             </Typography>
-
-&nbsp;
-
-          and 
-&nbsp;
-
+            &nbsp;
             <Typography style={{ display: 'inline-flex', fontSize: 24, fontWeight: 'bold' }} >
-            peer-to-peer skills acquisition
+              Code samples, quick starts 
             </Typography>
-            &nbsp; through purposeful projects
-
+            &nbsp; 
+            for all 
+            &nbsp; 
+            <Typography style={{ display: 'inline-flex', fontSize: 24, fontWeight: 'bold' }} >
+              major ML tools 
+            </Typography>
         </Typography>
-        <Button component={Link} to="/project" variant="raised" className={classes.button} style={{ marginTop: 15 }} >
-          View Projects
+        <Button component={Link} to="/themes" variant="raised" className={classes.button} style={{ marginTop: 15 }} >
+          View by Theme
         </Button>
-
+        <Button component={Link} to="/technologies" variant="raised" className={classes.button} style={{ marginTop: 15 }} >
+          View by Technology
+        </Button>
+        <Button component={Link} to="/chat" variant="raised" className={classes.button} style={{ marginTop: 15 }} >
+          Talk to AI Buddy to learn more
+        </Button>
       </Paper>
 
       <Paper elevation={4} style={{"position":"fixed","bottom":"10px","left":"10px"}}>
