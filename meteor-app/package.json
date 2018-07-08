@@ -4,6 +4,12 @@
   "scripts": {
     "start": "meteor run"
   },
+  "now": {
+    "alias": "skillsup",
+    "env": {
+      "ROOT_URL": "skillsup.now.sh"
+    }
+  },
   "dependencies": {
     "@babel/runtime": "^7.0.0-beta.42",
     "@material-ui/core": "^1.0.0",
